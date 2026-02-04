@@ -302,10 +302,10 @@ Success! All three nodes are reachable, we get a *pong* back, we proved that we 
 Try to run the same ad hoc command against the *control* group.  
 
 ``` { .console .no-copy }
-[student@ansible-1 ansible_files]$ ansible control -m ping
+[student1@ansible-1 ansible_files]$ ansible control -m ping
 ansible-1 | SUCCESS => {
     "ansible_facts": {
-        "discovered_interpreter_python": "/usr/libexec/platform-python"
+        "discovered_interpreter_python": "/usr/bin/python3"
     },
     "changed": false,
     "ping": "pong"

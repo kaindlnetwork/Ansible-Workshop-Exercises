@@ -1,13 +1,13 @@
 # MkDocs configuration file
 site_name: Ansible Workshop
-copyright: Copyright &copy; Tim Grützmacher 2025
+copyright: Copyright &copy; Tim Grützmacher 2026
 extra:
   social:
     - icon: simple/githubactions
-      link: https://github.com/TimGrt/Ansible-Workshop-Exercises/actions
+      link: https://github.com/computacenter-com/ansible-workshop-exercises/actions
       name: CI/CD Pipelines
     - icon: fontawesome/brands/docker
-      link: https://github.com/TimGrt/Ansible-Workshop-Exercises/blob/main/Containerfile
+      link: https://github.com/computacenter-com/ansible-workshop-exercises/blob/main/Containerfile
       name: Container Definition
 extra_css:
   - assets/stylesheets/tables.css
@@ -112,8 +112,8 @@ theme:
       toggle:
         icon: material/weather-sunny
         name: Switch to light mode
-repo_url: https://github.com/TimGrt/Ansible-Workshop-Exercises
-repo_name: timgrt/ansible-workshop-exercises
+repo_url: https://github.com/computacenter-com/ansible-workshop-exercises
+repo_name: computacenter-com/ansible-workshop-exercises
 watch:
   - includes
 # Navigation definition
