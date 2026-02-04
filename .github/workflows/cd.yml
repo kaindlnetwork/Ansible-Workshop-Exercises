@@ -1,21 +1,20 @@
 ---
-name: Deploy to Github pages
+name: Deployment
 on:
-  workflow_dispatch:
-  pull_request:
-    branches:
-      - main
+  release:
     types:
-      - closed
+      - published
 permissions:
-  pages: write
   contents: write
+  pages: write
+  id-token: write
   packages: write
-  deployments: write
 jobs:
   deploy:
-    name: Deploy MkDocs project to Github pages
-    if: github.event.pull_request.merged == true
+    name: Deploy to GitHub Pages
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
@@ -30,5 +29,12 @@ jobs:
         run: pip3 install -r requirements.txt
       - name: Install Playwright for PDF generation
         run: playwright install chromium --with-deps
+      - name: Build MkDocs site
+        run: mkdocs build --clean
+      - name: Upload site artifacts
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: site
       - name: Deploy to Github pages, starts new workflow
-        run: mkdocs gh-deploy --force
+        uses: actions/deploy-pages@v4
+        id: deployment
