@@ -87,7 +87,7 @@ For example, a code block containing a playbook may look like this:
 ```
 ````
 
-> As this Guide should show Good and Best Practices, always ensure that your Ansible example content follows the rules of the [Ansible Best Practices Guide](https://timgrt.github.io/Ansible-Best-Practices/)!
+> As this Guide should show Good and Best Practices, always ensure that your Ansible example content follows the rules of the [Ansible Best Practices Guide](https://computacenter-com.github.io/ansible-best-practices/)!
 
 If you want to add a *filename* to your example content, use the `title="<custom title>"` option. The [MkDocs Material documentation](https://squidfunk.github.io/mkdocs-material/reference/code-blocks/#usage) shows even more possibilities (annotations, line numbers, highlighting specific lines, ...), use what is available!
 
