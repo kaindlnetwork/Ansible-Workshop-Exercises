@@ -52,7 +52,7 @@ Before we do a bigger challenge lab, let's see if you remember how handlers are 
 
     Add the *notify* keyword and the name of the handler:
 
-    ```yaml hl_lines="17"
+    ```yaml hl_lines="18"
     --8<-- "templates-step1-motd-facts-handler-notify-playbook.yml"
     ```
 
