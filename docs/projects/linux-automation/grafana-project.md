@@ -89,39 +89,31 @@ node2 | CHANGED | rc=0 >>
            └─20887 /usr/sbin/grafana-server --config=/etc/grafana/grafana.ini --pidfile=/var/run/grafana/grafana-server.pid --packaging=rpm cfg:default.paths.logs=/var/log/grafana cfg:default.paths.data=/var/lib/grafana cfg:default.paths.plugins=/var/lib/grafana/plugins cfg:default.paths.provisioning=/etc/grafana/provisioning
 ```
 
-Accessing the Grafana UI from the browser currently fails with a timeout, use the **public** IP address of your *node2* (the one from your inventory) and port 3000 (this is the default port for Grafana). We will fix this in the next step.
+**Nice, the Grafana package is installed and the service is running!**  
+Grafana has a nice UI, unfortunately, the UI currently can't be viewed directly in the Red Hat Demo environment!
 
-### Step 3 - Configure Grafana
+This is how it would look, on the left in the default **dark** theme, the right screenshot shows the **light** theme.
 
-Currently, you are not able to access the Grafana UI, using the **public** IP address of your *node2* and the Grafana default port of 3000, you will get a timeout.  
-The lab environment only allows access to Port 80 and 8080, yesterday you started an Apache webserver on these ports with Ansible. You'll have to configure Grafana to start on Port 8080 to able to access the UI.
-
-!!! warning
-    There should be no running Apache webserver on *node2*, if otherwise, you'll need to stop *httpd* on *node2*! If the port is occupied, Grafana can not be started!  
-    You could (and should!) ensure a stopped Apache easily with an Ansible task...
-
-By default, Grafana uses a black background. You will adjust the Grafana configuration with Ansible to show the Grafana UI with white background. You will change the look from this...
+<div class="grid" markdown>
 
 ![Grafana with black background](grafana-dark-background.png)
 
-...to this...
-
 ![Grafana with white background](grafana-light-background.png)
 
-The configuration for Grafana is stored in `/etc/grafana/grafana.ini`. You need to adjust the theme configuration in the *users* section, as well as the *http_port* in the *server* section. Take a look at the [Grafana documentation](https://grafana.com/docs/grafana/latest/administration/configuration/){:target="_blank"} on how to change the parameters.  
-Naturally, you should achieve this with Ansible! Find an appropriate module (there is more than one way to achieve the solution...) and adjust the Grafana configuration file.
-
-!!! tip
-    Configuration changes require a service restart!
-
-After adjusting the configuration, try to access the Grafana UI again. Use the hostname (or public IP address) of your *node2* and use Port 8080 this time.  
+</div>
 
 !!! success
-    Unfortunately, the UI currently can't be viewed directly in the Red Hat Demo environment!  
-    If you are in a local environment, you can use the default login credentials *admin:admin*, you can skip the password change request.  
-    You can check if the UI is available by using the curl request `curl -L node2:8080`
 
-    ??? info "Example output"
+    You can use the following playbook to check the current theme setting, create a new file, paste to content and run it:
+
+    ```yaml
+    --8<-- "grafana-project-step3-test-theme-settings-playbook.yml"
+    ```
+
+    ??? info "**NOT** in the Red Hat Demo environment? Click me."
+
+        If you are in a local environment, you can use the default login credentials *admin:admin*, you can skip the password change request.  
+        You can check if the UI is available by using the curl request `curl -L node2:8080`
 
         ```console hl_lines="22 48"
         [student@ansible-1 ansible_files]$ curl -L node2:8080
@@ -183,11 +175,31 @@ After adjusting the configuration, try to access the Grafana UI again. Use the h
           ...<cut for readability>...
         ```
 
-    You can use the following playbook the check the current theme setting, create a new file, paste to content and run it:
+### Step 3 - Configure Grafana
 
-    ```yaml
-    --8<-- "grafana-project-step3-test-theme-settings-playbook.yml"
-    ```
+By default, Grafana provides the webinterface on **port 3000** and uses a **dark background**.  
+You need to adjust the Grafana configuration with Ansible to instruct the service to show the webinterface on **port 8080** and to configure a **white background (the so-called `light` theme)**.
+
+The configuration for Grafana is stored in `/etc/grafana/grafana.ini`. You need to adjust the theme configuration in the *users* section, as well as the *http_port* in the *server* section. Take a look at the [Grafana documentation](https://grafana.com/docs/grafana/latest/administration/configuration/){:target="_blank"} on how to change the parameters.  
+Naturally, you should achieve this with Ansible! Find an appropriate module (there is more than one way to achieve the solution...) and adjust the Grafana configuration file.
+
+<div class="grid" markdown>
+
+!!! tip
+    Configuration changes require a service restart!
+
+!!! tip
+    Login to `node2` via ssh, take a look at the file. You can download the file from there, copy the content or just take a look at how it looks to be able to find the appropraiate lines to change, there are many ways to achieve the solution!
+
+</div>
+
+Yesterday you started an Apache webserver on port 8080 with Ansible. **Two services (Apache/Httpd and Grafana) can not use the same port!**.
+
+!!! warning
+    There should be no running Apache webserver on *node2*, if Apache is running, you'll need to stop *httpd* on *node2*! If the port is occupied, Grafana can not be started!  
+    You could (and should!) ensure a stopped Apache easily with an Ansible task...
+
+After adjusting the configuration, run the playbook above (which checks the Grafana UI theme settings), adjust the `grafana_port` variable to use the new port 8080.  
 
 Achieve the following tasks:
 

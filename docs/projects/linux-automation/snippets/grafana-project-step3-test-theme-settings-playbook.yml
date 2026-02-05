@@ -1,9 +1,13 @@
 - name: Test Grafana theme setting
   hosts: node2
+  vars:
+    # By default, Grafana listens on port 3000!
+    # Change the value to '8080' if you want to check the target port later on
+    grafana_port: 3000
   tasks:
     - name: Get Grafana UI content
       ansible.builtin.uri:
-        url: http://node2:8080
+        url: http://node2:{{ grafana_port }}
         return_content: true
       register: grafana_ui_content
 
