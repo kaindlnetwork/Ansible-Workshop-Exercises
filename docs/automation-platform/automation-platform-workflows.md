@@ -57,28 +57,28 @@ First you have to set up the Git repo as a Project like you normally would.
 
 Within **Automation Execution → Projects**, click **Create Project** to set up the web operations team’s project: Fill out the form as follows:
 
-| Parameter                        | Value                                                                           |
-| -------------------------------- | ------------------------------------------------------------------------------- |
-| Name                             | `Webops Git Repo`                                                               |
-| Organization                     | `Default`                                                                       |
-| Default Execution Environment    | `Default Execution Environment`                                                 |
-| Source Control Credential Type   | `Git`                                                                           |
-| Source Control URL               | `https://github.com/ansible/workshop-examples.git`                              |
-| Source Control Branch/Tag/Commit | `webops`                                                                        |
+| Parameter                        | Value                                                                                                                            |
+| -------------------------------- | -------------------------------------------------------------------------------------------------------------------------------- |
+| Name                             | `Webops Git Repo`                                                                                                                |
+| Organization                     | `Default`                                                                                                                        |
+| Default Execution Environment    | `Default Execution Environment`                                                                                                  |
+| Source Control Credential Type   | `Git`                                                                                                                            |
+| Source Control URL               | `https://github.com/ansible/workshop-examples.git`                                                                               |
+| Source Control Branch/Tag/Commit | `webops`                                                                                                                         |
 | Options                          | :material-checkbox-outline: Clean<br>:material-checkbox-outline: Delete<br>:material-checkbox-outline: Update Revision on Launch |
 
 Click **Create project**.
 
 Repeat the process to set up the **Webdev Git Repo**, using the branch `webdev`. Fill out the form as follows:
 
-| Parameter                        | Value                                                                           |
-| -------------------------------- | ------------------------------------------------------------------------------- |
-| Name                             | `Webdev Git Repo`                                                               |
-| Organization                     | `Default`                                                                       |
-| Default Execution Environment    | `Default Execution Environment`                                                 |
-| Source Control Credential Type   | `Git`                                                                           |
-| Source Control URL               | `https://github.com/ansible/workshop-examples.git`                              |
-| Source Control Branch/Tag/Commit | `webdev`                                                                        |
+| Parameter                        | Value                                                                                                                            |
+| -------------------------------- | -------------------------------------------------------------------------------------------------------------------------------- |
+| Name                             | `Webdev Git Repo`                                                                                                                |
+| Organization                     | `Default`                                                                                                                        |
+| Default Execution Environment    | `Default Execution Environment`                                                                                                  |
+| Source Control Credential Type   | `Git`                                                                                                                            |
+| Source Control URL               | `https://github.com/ansible/workshop-examples.git`                                                                               |
+| Source Control Branch/Tag/Commit | `webdev`                                                                                                                         |
 | Options                          | :material-checkbox-outline: Clean<br>:material-checkbox-outline: Delete<br>:material-checkbox-outline: Update Revision on Launch |
 
 Click **Create project**.
@@ -97,7 +97,7 @@ Within **Automation Execution → Templates → Create template → Create job t
 | Project               | `Webops Git Repo`                                |
 | Execution Environment | `Default execution environment`                  |
 | Playbook              | `rhel/webops/web_infrastructure.yml`             |
-| Credentials           | `Workshop Credentials`                            |
+| Credentials           | `Workshop Credentials`                           |
 | Limit                 | `web`                                            |
 | Options               | :material-checkbox-outline: Privilege Escalation |
 
@@ -115,7 +115,7 @@ Click **Create job template**, and then repeat the process for the **Node.js Dep
 | Project               | `Webdev Git Repo`                                |
 | Execution Environment | `Default execution environment`                  |
 | Playbook              | `rhel/webdev/install_node_app.yml`               |
-| Credentials           | `Workshop Credentials`                            |
+| Credentials           | `Workshop Credentials`                           |
 | Limit                 | `web`                                            |
 | Options               | :material-checkbox-outline: Privilege Escalation |
 
