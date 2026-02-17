@@ -87,11 +87,12 @@ To configure and use this repository as a **Source Control Management (SCM)** sy
 
 * Click **Create project**
 
-The new project will be synced automatically after creation. But you can also do this manually: Sync the Project again with the Git repository by going to the **Projects** view and clicking the circular arrow **Sync Project** icon in the top right corner.
+The new project will be synced automatically after creation, wait for the **Success** state in *Last job status.  
+You can also do this manually: Sync the Project again with the Git repository by going to the **Projects** view and clicking the circular arrow **Sync Project** icon in the top right corner.
 
 ![Project Sync](images/project_sync.png)
 
-After starting the sync job, go to the **Jobs** view: there is a new job for the update of the Git repository.
+After starting the sync job, go to the **Jobs** view: there is a new job (from type *Source control update*) for the the Git repository.
 
 ### Create a Job Template and Run a Job
 
@@ -109,19 +110,19 @@ Okay, let’s just do that: To create a Job Template, go to the **Automation Exe
 
 !!! tip
     Remember that you can often click on the question mark with a circle to get more details about the field.
-
+<!-- markdownlint-disable MD060 -->
 | Parameter             | Value                                            |
 | --------------------- | ------------------------------------------------ |
 | Name                  | `Install Apache`                                 |
 | Job Type              | `Run`                                            |
 | Inventory             | `Workshop Inventory`                             |
 | Project               | `Workshop Project`                               |
-| Execution Environment | `Default execution environment`                  |
 | Playbook              | `rhel/apache/apache_install.yml`                 |
-| Credentials           | `Workshop Credential`                            |
+| Execution Environment | `Default execution environment`                  |
+| Credentials           | `Workshop Credentials | Machine`                 |
 | Limit                 | `web`                                            |
 | Options               | :material-checkbox-outline: Privilege Escalation |
-
+<!-- markdownlint-enable MD060 -->
 * Click **Create job template**
 
 You can start the job by directly clicking the blue **Launch template** button, or by clicking on the rocket in the Job Templates overview. After launching the Job Template, you are automatically brought to the job overview where you can follow the playbook execution in real time.
@@ -179,9 +180,9 @@ You have already been through all the steps needed, so try this for yourself.
     | Job Type              | `Run`                                            |
     | Inventory             | `Workshop Inventory`                             |
     | Project               | `Workshop Demo Content`                          |
-    | Execution Environment | `Default execution environment`                  |
     | Playbook              | `check_httpd_service.yml`                        |
-    | Credentials           | `Workshop Credential`                            |
+    | Execution Environment | `Default execution environment`                  |
+    | Credentials           | `Workshop Credentials | Machine`                 |
     | Limit                 | `web`                                            |
     | Options               | :material-checkbox-outline: Privilege Escalation |
 

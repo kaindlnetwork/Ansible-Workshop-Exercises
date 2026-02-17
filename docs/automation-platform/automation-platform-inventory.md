@@ -70,10 +70,14 @@ Within this window, select **Module** `ping` and click **Next**.
 
 Within the **Execution Environment** window, select **Default execution environment** and click **Next**.
 
-Within the **Machine Credential** window, select **Workshop Credentials** and click **Finish**.
+Within the **Credential** window, select **Workshop Credentials** and click **Next**.
+
+In the **Review** window, check the input again and click **Finish**.
 
 !!! tip
     The output of the results is displayed once the command has completed.
+
+---
 
 The simple **ping** module doesn’t need options. For other modules you need to supply the command to run as an argument. Try the **command** module to find the userid of the executing user using an ad hoc command.
 
@@ -83,13 +87,24 @@ The simple **ping** module doesn’t need options. For other modules you need to
 
 * Click **Run Command** button. In the next screen you have to specify the ad hoc command.
 
-Select **Module** `command`, in **Arguments** type `id` and click **Next**.
+Select **Module** `command`, in **Arguments** type `id` (1) and click **Next**.
+{ .annotate }
+
+1. The `id` command in Linux is used to display a user's identity information, including the user name, User ID (UID), Group ID (GID), and group memberships. It is commonly used by system administrators to verify user permissions, troubleshoot access issues, and audit user accounts.
 
 Within the **Execution Environment** window, select **Default execution environment** and click **Next**.
 
-Within the **Machine Credential** window, select **Workshop Credentials** and click **Launch**.
+Within the **Credential** window, select **Workshop Credentials** and click **Next**.
 
-How about trying to get some secret information from the system? Try to print out `/etc/shadow`.
+In the **Review** window, check the input again and click **Finish**.
+
+---
+
+How about trying to get some secret information from the system?  
+Let's try and print out the file `/etc/shadow`(1).
+{ .annotate }
+
+1. The /etc/shadow is a text-based password file. The shadow file stores the hashed passphrase (or “hash”) format for Linux user account with additional properties related to the user password.
 
 * In the web UI go to **Automation Execution → Infrastructure → Inventories** and select *Workshop Inventory*.
 
@@ -101,14 +116,16 @@ Within the **Details** window, select **Module** `command`, in **Arguments** typ
 
 Within the **Execution Environment** window, select **Default execution environment** and click **Next**.
 
-Within the **Machine Credential** window, select **Workshop Credentials** and click **Launch**.
+Within the **Credential** window, select **Workshop Credentials** and click **Next**.
+
+In the **Review** window, check the input again and click **Finish**.
 
 !!! warning
     **Expect an error\!**
 
 Oops, the last one didn’t went well, all red.
 
-Re-run the last ad hoc command but this time check the checkbox labeled **Privilege escalation**.
+Run a new ad hoc job, **but this time check the checkbox labeled *Privilege escalation***.
 
 As you see, this time it worked. For tasks that have to run as `root` you need to escalate the privileges. This is the same as the **become: true** used in your Ansible Playbooks.
 
@@ -128,17 +145,18 @@ Okay, a small challenge: Run an ad hoc to make sure the package "tmux" is instal
     * Click **Run Command** button. In the next screen you have to specify the ad hoc command.
     * Within the **Details** window, select **Module** `yum`, in **Arguments** type `name=tmux`, check **Enable privilege escalation** and click **Next**.
     * Within the **Execution Environment** window, select **Default execution environment** and click **Next**.
-    * Within the **Machine Credential** window, select **Workshop Credentials** and click **Launch**.
+    * Within the **Credential** window, select **Workshop Credentials** and click **Next**.
+    * In the **Review** window, check the input and click **Finish**.
 
 !!! info
-    Notice how the package was installed via the "CHANGED" output. If you run the ad hoc command a second time, the output will mention "SUCCESS" and inform you via the message parameter that there is nothing to do.
+    Notice how the package was installed via the "CHANGED" output. If you run the ad hoc command (using the RHEL package manager module and **not** the `command` or `shell` module!) a second time, the output will mention "SUCCESS" and inform you via the message parameter that there is nothing to do.
 
 ### Adjust AAP settings for additional ad-hoc module
 
 The previous Challenge Lab made use of the `yum` module, this module only makes sense on *older* Fedora-based systems like RHEL 7 or RHEL 8 hosts.  
 Previously, we used the generic `package` module to install packages on the target systems. Let's add this module to the list of modules which can be used with ad-hoc commands.  
 
-* In the web UI go to **Settings → Jobs**.
+* In the web UI go to **Settings → Job**.
 * In this **Jobs settings** windows, click the **Edit** button in the top right.
 
 * In the text area *Ansible Modules Allowed for Ad Hoc Jobs*, add `"package",` (in between `mount` and `ping` to keep the alphabatical order).

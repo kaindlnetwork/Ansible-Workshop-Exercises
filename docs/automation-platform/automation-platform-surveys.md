@@ -49,19 +49,19 @@ Now you create a new Template that includes a survey.
 * Go to **Automation Execution → Templates**, click the **Create template** button, and choose **Create job template**.
 
 * Fill out the following information:
-
+<!-- markdownlint-disable MD060 -->
 | Parameter             | Value                                            |
 | --------------------- | ------------------------------------------------ |
 | Name                  | `Create index.html`                              |
 | Job Type              | `Run`                                            |
 | Inventory             | `Workshop Inventory`                             |
 | Project               | `Workshop Project`                               |
-| Execution Environment | `Default execution environment`                  |
 | Playbook              | `rhel/apache/apache_role_install.yml`            |
-| Credentials           | `Workshop Credential`                            |
+| Execution Environment | `Default execution environment`                  |
+| Credentials           | `Workshop Credentials | Machine`                 |
 | Limit                 | `web`                                            |
 | Options               | :material-checkbox-outline: Privilege Escalation |
-
+<!-- markdownlint-enable MD060 -->
 * Click **Create job template**.
 
 !!! warning
@@ -92,12 +92,11 @@ Now you create a new Template that includes a survey.
 
 ![Survey Q2](images/survey_q2.png)
 
-* Click **Create survey question**.
 * Enable the survey by toggling the **Survey disabled** button to the **On** posiiton.
 
 ### Launch the Template
 
-Now, launch the **Create index.html** job template by clicking the **Launch template** button.
+Now, launch the **Create index.html** job template by clicking the **Launch template** button (the small rocket symbol).
 
 Before the actual launch the survey will ask for **First Line** and **Second Line**. Fill in some text and click **Next**. The **Preview** window shows the values, if all is good run the Job by clicking **Finish**.
 
