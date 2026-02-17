@@ -62,6 +62,8 @@ plugins:
       enabled: !ENV [ENABLED_GIT_REVISION_DATE, True]
       fallback_to_build_date: true
       locale: en
+  - glightbox:
+      width: 80%
   - exporter:
     # This plugin requires playwright! For testing, deactivate if necessary
       buttons:
