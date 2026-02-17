@@ -114,10 +114,12 @@ As you see, this time it worked. For tasks that have to run as `root` you need t
 
 ### Challenge Lab: Ad Hoc Commands
 
-Okay, a small challenge: Run an ad hoc to make sure the package "tmux" is installed on all hosts. If unsure, consult the documentation either via the web UI as shown above or by running `ansible-doc yum` on the CLI of your Ansible control host.
+Okay, a small challenge: **Run an ad hoc command to make sure the package "tmux" is installed on all `web` hosts.**
+
+If unsure, consult the [documentation in your browser](https://docs.ansible.com/projects/ansible/latest/collections/ansible/builtin/yum_module.html){:target="_blank"} or by running `ansible-doc yum` on the CLI of your Ansible control host.
 
 !!! tip
-    The *Arguments* you want to provide for your desired module need to be provided as key-value-pairs separated with `=` (the same way as you would do on the [command-line](https://docs.ansible.com/ansible/latest/command_guide/intro_adhoc.html){:target="_blank"}), multiple arguments need to be separated by *whitespace* or *comma*.
+    The *Arguments* you want to provide for your desired module need to be provided as key-value-pairs separated with `=` (the same way as you would do on the [command-line](https://docs.ansible.com/ansible/latest/command_guide/intro_adhoc.html){:target="_blank"}), **multiple arguments need to be separated by *whitespace***.
 
     ![Ad-hoc arguments](ad_hoc_arguments.png)
 
