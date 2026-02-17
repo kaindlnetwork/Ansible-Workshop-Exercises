@@ -28,4 +28,4 @@ Put an `x` in the boxes that apply.
 ## Release info
 
 After your PR is reviewed, accepcted and merged to `main`, your changes will **not** by visible directly in the Github pages deployment.  
-We are publishing a new [release](https://github.com/computacenter-com/ansible-workshop-exercises/releases) of the Best Practice Guide once a *reasonable* amount of additional/fixed content is available.
+We are publishing a new [release](https://github.com/computacenter-com/ansible-workshop-exercises/releases) of the Workshop Guide once a *reasonable* amount of additional/fixed content is available.
