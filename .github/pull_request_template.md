@@ -1,4 +1,4 @@
-# PR Description
+# Pull Request
 
 <!---
 Describe your Pull Request here. below the comment!
@@ -10,7 +10,7 @@ You can fill out the PR Checklist AFTER creating the PR!
 
 ## PR Checklist
 
-❤️ Thank you for your contribution to the *Ansible Best Practice Guide*!  
+❤️ Thank you for your contribution to the *Ansible Workshop Guide*!  
 
 > [!IMPORTANT]
 > **Please make sure you followed our [Pull Request Guidelines](CONTRIBUTING.md#pull-request-guidelines).**
@@ -20,7 +20,12 @@ Put an `x` in the boxes that apply.
 -->
 
 - [ ] The PR has a **useful and descriptive title**!
-- [ ] You chose an *appropriate Rwviewer* in the section to the right (click the ⚙️ icon)!
+- [ ] You chose an *appropriate Reviewer* in the section to the right (click the ⚙️ icon)!
 - [ ] All [Issues are linked](https://docs.github.com/en/issues/tracking-your-work-with-issues/using-issues/linking-a-pull-request-to-an-issue) which this PR resolves!
 - [ ] Changes are [previewed and verified in your development environment](CONTRIBUTING.md#create-development-environment)!
-- [ ] All [integration checks](https://github.com/computacenter-com/ansible-best-practices/actions/workflows/ci.yml) succeeded!
+- [ ] All [integration checks](https://github.com/computacenter-com/ansible-workshop-exercises/actions/workflows/ci.yml) succeeded!
+
+## Release info
+
+After your PR is reviewed, accepcted and merged to `main`, your changes will **not** by visible directly in the Github pages deployment.  
+We are publishing a new [release](https://github.com/computacenter-com/ansible-workshop-exercises/releases) of the Best Practice Guide once a *reasonable* amount of additional/fixed content is available.
