@@ -35,6 +35,10 @@ You’ll start off by writing your first Ansible playbook, work on Jinja templat
         ??? failure "Error"
             This contains additional information when you encounter **expected** errors.
 
+      * Acronyms and abbreviations are explained with a **mouse-over**!
+
+        Hover over AAP, SSH or YAML to view the full or written out form.
+
     !!! info
         The [Ansible Basics](ansible-basics-overview.md) and [Automation Platform](automation-platform-overview.md) exercises are **guided**, if you follow the steps (**the exercises build on each other**), you'll be fine.  
         You'll encounter some **challenge labs**, they don't show you how its done, you have to use the knowledge of the previous exercises to achieve the solution.  
