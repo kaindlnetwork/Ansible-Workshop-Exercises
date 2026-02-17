@@ -35,6 +35,10 @@ You’ll start off by writing your first Ansible playbook, work on Jinja templat
         ??? failure "Error"
             This contains additional information when you encounter **expected** errors.
 
+      * Acronyms and abbreviations are explained with a **mouse-over**!
+
+        Hover over AAP, SSH or YAML to view the full or written out form.
+
       * Images can be clicked to enlarge!
 
         <figure markdown>

@@ -17,18 +17,42 @@ Ansible collections support a wide range of vendors, device types, and actions, 
 
 ## Objective
 
-Get to know network automation with Ansible.  
-Network automation uses the basic Ansible concepts, but there are some differences in how the network modules work.  
-Unlike most Ansible modules, network modules do not run on the managed nodes. From a user’s point of view, network modules work like any other modules. They work with ad hoc commands, playbooks, and roles. Behind the scenes, however, network modules use a different methodology than the other (Linux/Unix and Windows) modules use. Ansible is written and executed in Python. Because the majority of network devices can not run Python, the Ansible network modules are executed on the Ansible control node.
+Get to know network automation with Ansible. Network automation uses the basic Ansible concepts, but there are some differences in how the network modules work.  
+**Unlike most Ansible modules, network modules do not run on the managed nodes.** From a user’s point of view, network modules work like any other modules. They work with ad hoc commands, playbooks, and roles.  
+Behind the scenes, however, network modules use a different methodology than the other (Linux/Unix and Windows) modules use. Ansible is written and executed in Python. Because the majority of network devices can not run Python, the Ansible network modules are executed on the Ansible control node.
+
+You will execute automation tasks against the **Cisco ACI APIC.**
+
+??? info "Additional information to Cisco ACI"
+
+    The Cisco Application Centric Infrastructure allows application requirements to define the network. This architecture simplifies, optimizes, and accelerates the entire application deployment life cycle.  
+
+    The Application Policy Infrastructure Controller manages the scalable ACI multi-tenant fabric. The APIC provides a unified point of automation and management, policy programming, application deployment, and health monitoring for the fabric. The APIC, which is implemented as a replicated synchronized clustered controller, optimizes performance, supports any application anywhere, and provides unified operation of the physical and virtual infrastructure.
+
+    The APIC enables network administrators to easily define the optimal network for applications. Data center operators can clearly see how applications consume network resources, easily isolate and troubleshoot application and infrastructure problems, and monitor and profile resource usage patterns.
+
+    The Cisco Application Policy Infrastructure Controller API enables applications to directly connect with a secure, shared, high-performance resource pool that includes network, compute, and storage capabilities.
+
+    <figure markdown>
+      ![Cisco Application Centric Infrastructure Fabric Overview](aci-fabric-overview.png){ loading=lazy }
+      <figcaption></figcaption>
+    </figure>
 
 ## Guide
 
-You will execute some automation tasks against Cisco ACI. The Cisco Application Centric Infrastructure allows application requirements to define the network. This architecture simplifies, optimizes, and accelerates the entire application deployment life cycle.  
-The Application Policy Infrastructure Controller manages the scalable ACI multi-tenant fabric. The APIC provides a unified point of automation and management, policy programming, application deployment, and health monitoring for the fabric. The APIC, which is implemented as a replicated synchronized clustered controller, optimizes performance, supports any application anywhere, and provides unified operation of the physical and virtual infrastructure.
+The overall goal of the project is:
 
-The APIC enables network administrators to easily define the optimal network for applications. Data center operators can clearly see how applications consume network resources, easily isolate and troubleshoot application and infrastructure problems, and monitor and profile resource usage patterns.
+* [X] Create an Ansible project *from scratch*
+* [X] Find, install and use additional Ansible collections
+* [X] Create an ACI Tenant with Ansible
+* [X] Create an ACI Application profile (belonging to the tenant) with Ansible
+* [X] Create multiple ACI Endpoint Groups (belonging to the AP) with Ansible
+* [X] Use Ansible roles and vault-encrypted content
 
-The Cisco Application Policy Infrastructure Controller API enables applications to directly connect with a secure, shared, high-performance resource pool that includes network, compute, and storage capabilities.
+<figure markdown>
+  ![APIC Management Information Tree](apic-tenants-and-objects.png){ loading=lazy }
+  <figcaption></figcaption>
+</figure>
 
 ### Step 1 - Prepare project
 
