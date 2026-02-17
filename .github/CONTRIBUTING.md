@@ -1,16 +1,10 @@
 # Contributing Guidelines
 
-Thank you for taking the time to contributing to the *Ansible Workshop Exercises*!
+❤️ **Thank you, for taking the time to contribute to the *Ansible Workshop Exercise Guide*!**
 
-## Pull Request Guidelines
+To ensure that the *Ansible Workshop Exercise Guide* has a common *look and feel* take a look and follow the next guidelines when contributing to the documentation.  
 
-Before opening a *pull request* make sure you followed the next couple of steps.
-
-1. Use the provided `Makefile` to create a development environment!
-2. Always **preview** the changes you made thoroughly, only commit your changes if everything looks as intended!
-3. Use the provided *pre-commit* configuration, it will lint your Markdown files and also check for spelling errors!
-
-### Create development environment
+## Create development environment
 
 Run the provided *Makefile*, the `all` target creates a Python VE with all requirements and installs the provided *pre-commit* hooks:
 
@@ -20,8 +14,21 @@ make all
 
 Running without specifying a target displays a *help* message.
 
-> NOTE: For certain pages, PDF file generation is activated. This requires Ubuntu with *playwright* installed!  
-> You can test without this, use the command provided when running `make all` or `make serve`.
+### Preview changes
+
+Use the *live preview* for all changes to the guidelines!
+
+After creating the development environment, you can start a [local webserver to preview all changes](https://squidfunk.github.io/mkdocs-material/creating-your-site/#previewing-as-you-write) with the following command:
+
+```console
+MKDOCS_EXPORTER_PDF_ENABLED=false mkdocs serve --livereload
+```
+
+By default, the webserver is served on [localhost:8000](localhost:8000).
+
+> [!IMPORTANT]
+> **Ensure you have the latest version for all requirements!**
+> If in doubt, remove the development environment (`make clean`) and create a fresh one (`make all`).
 
 ### Delete development environment
 
@@ -96,7 +103,7 @@ Take a look at the [MkDocs Material documentation](https://squidfunk.github.io/m
 
 #### Copy or not to copy
 
-By default, every code block has a small *copy* button in the top-right corner, if your code block e.g. contains only example output from the shell, it should not by copyable. Disable the copy button **per** code block with `.no-copy`, the syntax is slightly different:
+By default, every code block has a small *copy* button in the top-right corner, if your code block e.g. contains only example output from the shell or shows unwanted behavior, it should not by copyable. Disable the copy button **per** code block with `.no-copy`, the syntax is slightly different:
 
 ````markdown
 ``` { .console .no-copy}
@@ -108,3 +115,15 @@ By default, every code block has a small *copy* button in the top-right corner, 
 > If not, it should not by copyable!
 
 Additional information can be found in the [MkDocs Material documentation](https://squidfunk.github.io/mkdocs-material/reference/code-blocks/#code-copy-button).
+
+## Pull Request Guidelines
+
+Before opening a *pull request* make sure you followed the next couple of steps.
+
+1. Use the provided `Makefile` to create a development environment!
+2. Always **preview** the changes you made thoroughly, only commit your changes if everything looks as intended!
+3. Use the provided *pre-commit* configuration, it will lint your Markdown files and also check for spelling errors!
+
+> [!NOTE]
+> After your PR is reviewed, accepcted and merged to `main`, your changes will **not** by visible directly in the Github pages deployment.  
+> We are publishing a new [release](https://github.com/computacenter-com/ansible-workshop-exercises/releases) of the Best Practice Guide once a *reasonable* amount of additional/fixed content is available.

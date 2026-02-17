@@ -76,6 +76,7 @@ body:
       - Projects > Project - Linux automation
       - Projects > Project - Network automation
       - Projects > Project - AWS Automation
+      - Projects > Project - DCIM automation
       - Ansible Future > Overview
       - Ansible Future > Ansible Navigator
   validations:
