@@ -44,7 +44,7 @@ Automation operators are typically the primary individuals who interact directly
 ### Automation mesh
 
 <figure markdown>
-  ![Automation mesh](mesh_logical.png){ loading=lazy }
+  ![Automation mesh](mesh_logical.png){ loading=lazy .off-glb }
   <figcaption></figcaption>
 </figure>
 

@@ -207,7 +207,7 @@ The APIC manages the scalable ACI multi-tenant fabric. A *multi-tenant* environm
 
 The goal is to create a new tenant within the APIC controller with Ansible. The tenant should have a recognizable name e.g. `demo-tenant-<initials>`. Add the tenant description `Workshop tenant`.
 
-![Demo Tenant in APIC UI](apic-demo-tenant.png)
+![Demo Tenant in APIC UI](apic-demo-tenant.png){ .on-glb }
 
 Observe the tenant and it's annotation in the APIC UI.
 
@@ -235,10 +235,10 @@ Let's create three EPGs for our Application profile, use a single task by creati
 The *EPGs* should have the following attributes:
 
 | Loop item | *EPG name* | *EPG description* |
-|:---------:| :---------- | :---------------- |
-|     1     | `web`      | `Web EPG`        |
-|     2     | `app`      | `APP EPG`        |
-|     3     | `db`       | `DB EPG`         |
+| :-------: | :--------- | :---------------- |
+|     1     | `web`      | `Web EPG`         |
+|     2     | `app`      | `APP EPG`         |
+|     3     | `db`       | `DB EPG`          |
 
 Setting the required attributes requires looping over a [list of hashes](https://docs.ansible.com/ansible/latest/playbook_guide/playbooks_loops.html#iterating-over-a-list-of-hashes){:target="_blank"}. All EPGs should have the `default` monitoring policy attached.
 
