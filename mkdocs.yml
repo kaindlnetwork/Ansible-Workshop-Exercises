@@ -1,5 +1,5 @@
 # MkDocs configuration file
-site_name: Ansible Workshop
+site_name: Ansible Workshop - Exercise Guide
 copyright: Copyright &copy; Tim Grützmacher 2026
 extra:
   social:
@@ -148,7 +148,7 @@ nav:
     - "7 - AAP Wrap up": automation-platform/automation-platform-wrapup.md
   - "Projects":
     - projects/projects-overview.md
-    - "Project - Linux automation": projects/linux-automation/grafana-project.md
+    - "Project - Linux automation": projects/linux-automation/prometheus-node-exporter-project.md
     - "Project - Network automation": projects/network-automation/apic-project.md
     - "Project - Cloud automation": projects/cloud-automation/aws-project.md
     - "Project - DCIM automation": projects/dcim-ipam-automation/netbox-project.md

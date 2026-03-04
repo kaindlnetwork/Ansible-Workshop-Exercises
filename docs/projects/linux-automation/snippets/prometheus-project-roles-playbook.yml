@@ -1,0 +1,7 @@
+---
+# This is the main Playbook for the 'Prometheus Node Exporter Deployment' Project
+
+- name: Deploy Prometheus Node Exporter on all managed nodes
+  hosts: prometheus
+  roles:
+    - node_exporter

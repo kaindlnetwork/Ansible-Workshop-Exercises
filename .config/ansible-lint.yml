@@ -19,6 +19,7 @@ mock_roles:
   - role2
   - apache_webserver
   - grafana
+  - node_exporter
 
 var_naming_pattern: "^[a-z_][a-z0-9_]*$"
 
