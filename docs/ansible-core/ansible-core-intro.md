@@ -2,6 +2,7 @@
 pdf: true
 covers:
   front: ./docs/assets/pdf/ansible-core-cover.html.j2
+glightbox: false
 ---
 
 # 1 - Check the Prerequisites

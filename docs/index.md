@@ -3,8 +3,8 @@
 Ansible is a radically simple IT automation system. It handles configuration management, application deployment, cloud provisioning, ad-hoc task execution, network automation, and multi-node orchestration.
 
 <figure markdown>
-  ![CC Logo](assets/images/ansible-community-logo-black.png#only-light){ width="300" }
-  ![CC Logo](assets/images/ansible-community-logo-white.png#only-dark){ width="300" }
+  ![CC Logo](assets/images/ansible-community-logo-black.png#only-light){ width="300" .off-glb }
+  ![CC Logo](assets/images/ansible-community-logo-white.png#only-dark){ width="300" .off-glb }
   <figcaption></figcaption>
 </figure>
 

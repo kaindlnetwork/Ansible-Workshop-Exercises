@@ -17,11 +17,11 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     steps:
+      - name: Enable Pages and extract various metadata
+        uses: actions/configure-pages@v5
       - name: Checkout repository
         uses: actions/checkout@v6
-        with:
-          fetch-depth: 0
-      - name: Install Python
+      - name: Setup Python
         uses: actions/setup-python@v6
         with:
           python-version: 3.x
@@ -35,6 +35,6 @@ jobs:
         uses: actions/upload-pages-artifact@v4
         with:
           path: site
-      - name: Deploy to Github pages, starts new workflow
+      - name: Deploy GitHub Pages
         uses: actions/deploy-pages@v4
         id: deployment
