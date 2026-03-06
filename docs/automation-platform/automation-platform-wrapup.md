@@ -162,11 +162,11 @@ ok: [node3] => {
 
 In the same fashion add a second **Survey Question**
 
-| Parameter            | Value                                      |
-| -------------------- | ------------------------------------------ |
+| Parameter            | Value                                       |
+| -------------------- | ------------------------------------------- |
 | Question             | `What should the value of prod_content be?` |
 | Answer Variable Name | `prod_content`                              |
-| Answer Type          | `Text`                                     |
+| Answer Type          | `Text`                                      |
 
 * Click **Create survey question**
 * Click the toggle **Survey disabled** to enable the Survey questions.

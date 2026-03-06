@@ -177,7 +177,7 @@ As we need additional information about our VMs (number of vCPU cores, memory, d
 
 Once you gathered all facts about your managed nodes, add a task to create virtual machine objects in the Netbox with a loop, iterating over the `web` group of your inventory.  
 Find the correct module, every VM object should use the following parameters:
-
+<!-- markdownlint-disable MD060 -->
 | Parameter            | Value                                                                                                                       | Example (rendered to) |
 | -------------------- | --------------------------------------------------------------------------------------------------------------------------- | --------------------- |
 | name                 | `#!jinja "{{ hostvars[item]['ansible_fqdn'] }}"`                                                                            | *node2.example.com*   |
@@ -190,7 +190,7 @@ Find the correct module, every VM object should use the following parameters:
 | disk                 | `#!jinja "{{ hostvars[item]['ansible_devices']['nvme0n1']['size'] | split(' ') | first | int }}"`                           | *10*                  |
 | virtual_machine_role | `application-server`                                                                                                        |                       |
 | status               | `Active`                                                                                                                    |                       |
-
+<!-- markdownlint-enable MD060 -->
 !!! warning
     Again, replace `<initials>` with your own Initials.
 
