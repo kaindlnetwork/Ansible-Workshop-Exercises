@@ -42,7 +42,7 @@ Note the following information:
 | ---------------------------- | ----------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | <nobr>Credential Type</nobr> | `Machine`   | Machine credentials define ssh and user-level privilege escalation access for playbooks. They are used when submitting jobs to run playbooks on a remote host. |
 | <nobr>Username</nobr>        | `ec2-user`  | The user which matches our command-line Ansible inventory username for the other Linux nodes                                                                   |
-| <nobr>SSH Private Key</nobr> | `Encrypted` | Note that you can't actually examine the SSH private key once someone hands it over to Ansible Automation controller |
+| <nobr>SSH Private Key</nobr> | `Encrypted` | Note that you can't actually examine the SSH private key once someone hands it over to Ansible Automation controller                                           |
 
 Automation controller supports over 30 different credential types for various automation tasks. Here are a few common ones:
 
