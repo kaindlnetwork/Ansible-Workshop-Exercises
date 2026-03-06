@@ -28,7 +28,7 @@ The overall goal of the project is:
 * [X] Create a Linux service which runs the node exporter binary
 * [X] Use Ansible roles
 
-The playbook runs on your Ansible Control Node (*ansible-1*) and targets all managed nodes (*node1*, *node2* and *node3*). Only the node exporter should be installed and running as as service, the actual Prometheus server (where to node exporter would send its metrics to) is not part of the project.
+The playbook runs on your Ansible Control Node (*ansible-1*) and targets all managed nodes (*node1*, *node2* and *node3*). **Only the node exporter should be installed and running as a service**, the actual Prometheus server (where the node exporter would send its metrics to) is **not** part of the project.
 
 ```mermaid
 flowchart LR
