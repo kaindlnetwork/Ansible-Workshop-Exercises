@@ -73,7 +73,7 @@ Create a **new inventory file**, it should define multiple groups, one for the *
 
 Take a look at the [Ansible inventory documentation](https://docs.ansible.com/projects/ansible/latest/inventory_guide/intro_inventory.html#how-to-build-your-inventory){:target="_blank"}, especially on how to create [parent/child group relationships](https://docs.ansible.com/projects/ansible/latest/inventory_guide/intro_inventory.html#grouping-groups-parent-child-group-relationship){:target="_blank"}.
 
-Create a small Ansible configuration file (`ansible.cfg`) and instruct Ansible to always use the inventory you just created.
+Create a new Ansible configuration file and instruct Ansible to always use the inventory you just created.
 
 For example, you may check your inventory with the `ansible-inventory` CLI utility:
 
@@ -100,7 +100,7 @@ all:
 
 Now, create a **new playbook file**, it should include a *play* which targets the `prometheus_test` group.
 
-!!! tip
+!!! warning
     **Do not target the `prometheus` group** (yet).  
     Develop and test your automation against the *test environment* first, once everything is stable, you may target all nodes (**this is done in Step 5**).
 
@@ -123,7 +123,7 @@ The Prometheus Node exporter installation basically follows [this guide](https:/
 
 Add Ansible Tasks to achieve the first two steps.
 
-The download link can be obtained from the [Prometheus Download Page](https://prometheus.io/download/#node_exporter), right-click the tarball with `*linux-amd64.tar.gz` and choose copy link.
+**The download link can be obtained from the [Prometheus Download Page](https://prometheus.io/download/#node_exporter){:target="_blank"}**, right-click the tarball with `*linux-amd64.tar.gz` and choose copy link.
 
 <figure markdown>
   ![Download Node exporter tarball](prometheus-node-exporter-copy-link.png){ width=70% }
@@ -153,7 +153,7 @@ Achieve the following tasks:
 
 ### Step 3 - Create Linux Service for Node exporter
 
-The Node Exporter should run as a Linux SystemD service under the user `prometheus_metrics`. **The username value should be provided as a variable**, define the variable at a location of your choice.  
+The Node Exporter should run as a Linux **SystemD** service under the user `prometheus_metrics`. **The username value should be provided as a variable**, define the variable at a location of your choice.  
 
 **Add a task that creates the user (using the variable)**, the user should not be able to login (shell should be set to `/sbin/nologin`), a home directory is also not necessary. Use the appropriate parameters of the module.
 
@@ -181,6 +181,8 @@ WantedBy=multi-user.target
 
 The service file expects the binary at `/usr/local/bin/node_exporter` (see `ExecStart` parameter), **add a task which moves/copies the binary to the desired location. The binary must belong to the service user** (use the variable) **and be executable** (use `0755` permissions).
 
+After transferrring the service file and having the binary at the correct location, the systemd service itself must be started (and should be enabled at boot)! **Add an additional task to achieve this.**
+
 The Node Exporter exposes the metrics on Port 9100, you can check this by cURLing the `/metrics` endpoint. Run an ad-hoc command against the managed node with the argument `curl http://localhost:9100/metrics | grep node_`. The command uses a *pipe*, choose the correct module(!), the default module `command` does not support this!  
 Expect an output like this:
 
@@ -201,7 +203,9 @@ node_cooling_device_cur_state{name="0",type="Processor"} 0
 ...
 ```
 
-* [X] User created without home directory and login shell
+Achieve the following tasks:
+
+* [X] User created **without** home directory and login shell
 * [X] Service File present under `/etc/systemd/system/node-exporter.service`
 * [X] Node Exporter binary present under `/usr/local/bin`
 * [X] Playbook runs successful
@@ -213,11 +217,7 @@ node_cooling_device_cur_state{name="0",type="Processor"} 0
 
 All Ansible projects should use the role structure, if your project does not already uses it, now is the time to rearrange your content.  
 Create a `roles` folder and an appropriately named sub-folder for the node exporter deployment with all necessary folder and files.  
-Change your playbook to use your role, e.g.:
-
-```{ .yaml .no-copy }
---8<-- "prometheus-project-roles-playbook.yml"
-```
+Change your playbook to use your role.
 
 Make sure everything works by executing your playbook again.
 

@@ -54,6 +54,8 @@ The overall goal of the project is:
   <figcaption></figcaption>
 </figure>
 
+---
+
 ### Step 1 - Prepare project
 
 Create a new project folder in your home directory:
@@ -139,6 +141,8 @@ community.general 5.3.0
 ??? note
     If you use the Ansible navigator (which utilizes an execution environment), the collection is available. The method for playbook execution is up to you, why not try it with both ways?!
 
+---
+
 ### Step 2 - Inventory and playbook
 
 Within your newly created project folder, create an inventory file and a playbook file (**the name of the files are up to you**).
@@ -201,6 +205,8 @@ For a production environment this is obviously **not recommended**!
 
 In case of an unavailable APIC sandbox, re-run your playbook when it comes back online.  
 
+---
+
 ### Step 3 - Create a new tenant
 
 The APIC manages the scalable ACI multi-tenant fabric. A *multi-tenant* environment or *multi-tenancy* data centres handle segregation of traffic between multiple tenants and ensure privacy and security between tenant data.
@@ -215,6 +221,8 @@ Achieve the following tasks:
 
 * [X] Tenant created
 * [X] Inspected tenant in the UI
+
+---
 
 ### Step 4 - AP creation and EPGs
 
@@ -252,6 +260,8 @@ Achieve the following tasks:
 !!! note
     No communication between the different EPGs is established yet, this would be achieved with *contracts*. By now, you are experienced enough with creating objects in ACI with Ansible, let's skip the contracts creation.
 
+---
+
 ### Step 5 - Roles and encryption
 
 Now that you can execute automated tasks against the ACI, let's re-format the project and use some Ansible best-practices.  
@@ -268,6 +278,8 @@ Achieve the following tasks:
 * [X] Project uses Ansible role structure
 * [X] APIC credentials are vault-encrypted
 * [X] Playbook references role, tasks are executed
+
+---
 
 ### Step 6 - Use filters to manipulate data
 

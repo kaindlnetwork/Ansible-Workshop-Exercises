@@ -9,7 +9,7 @@ covers:
 To further enhance your Ansible skills, let's deploy the monitoring tool *Grafana* to one of the nodes in the demo environment.
 
 <figure markdown>
-  ![Grafana Logo](grafana-logo.png)
+  ![Grafana Logo](grafana-logo.png){ .off-glb }
   <figcaption></figcaption>
 </figure>
 
@@ -18,6 +18,39 @@ To further enhance your Ansible skills, let's deploy the monitoring tool *Grafan
 Create an Ansible project *from scratch* and automate some basic linux configurations.
 
 ## Guide
+
+The overall goal of the project is:
+
+* [X] Create an Ansible project *from scratch*
+* [X] Find Ansible modules in the documentation and use them in a playbook
+* [X] Define a new package source
+* [X] Install and start a service
+* [X] Adjust a configuration file
+* [X] Use Ansible roles
+* [X] Use ansible-vault encryption
+
+```mermaid
+flowchart LR
+    grafanaService@{ shape: rect, img: "../images/grafana-logo-spaced.png", w: 130, constraint: "on" }
+    controller["Ansible Control Node<br><img src='https://raw.githubusercontent.com/ansible/logos/628fad53cb2ca88c40e8c934b1cae146d71ffa09/community-marks/Ansible-Community-Mark-Black.svg' /><br>(ansible-1)"]
+    node1NotUsed@{ shape: braces, label: "&nbsp;&nbsp;Not used&nbsp;&nbsp;" }
+    node3NotUsed@{ shape: braces, label: "&nbsp;&nbsp;Not used&nbsp;&nbsp;" }
+
+    controller -.-x node3
+    subgraph node3 [node3]
+    node3NotUsed
+    end
+    controller -- install & configure --> grafanaService
+    subgraph node2 [node2]
+    grafanaService
+    end
+    controller -.-x node1
+    subgraph node1 [node1]
+    node1NotUsed
+    end
+```
+
+---
 
 ### Step 1 - Prepare project
 
@@ -46,8 +79,8 @@ For example, you may check your inventory with the `ansible-inventory` CLI utili
 
 Achieve the following tasks:
 
-- [X] Inventory file created
-- [X] Configuration file created which sets the correct inventory source
+* [X] Inventory file created
+* [X] Configuration file created which sets the correct inventory source
 
 ### Step 2 - Install Grafana
 
@@ -70,8 +103,8 @@ The next task should install the `grafana` package. Another task is needed to st
 
 Achieve the following tasks:
 
-- [X] Running Grafana instance on node2
-- [X] Grafana service running and enabled at startup
+* [X] Running Grafana instance on node2
+* [X] Grafana service running and enabled at startup
 
 Ensure that Grafana is running with an ad hoc command:
 
@@ -90,7 +123,7 @@ node2 | CHANGED | rc=0 >>
 ```
 
 **Nice, the Grafana package is installed and the service is running!**  
-Grafana has a nice UI, unfortunately, the UI currently can't be viewed directly in the Red Hat Demo environment!
+Grafana has a nice UI, unfortunately, the UI currently can't be viewed directly in the Red Hat Demo environment as the ports are not published to the internet!
 
 This is how it would look, on the left in the default **dark** theme, the right screenshot shows the **light** theme.
 
@@ -203,9 +236,9 @@ After adjusting the configuration, run the playbook above (which checks the Graf
 
 Achieve the following tasks:
 
-- [X] Accessible Grafana UI on port 8080
-- [X] Grafana UI in `light` theme
-- [ ] Bonus: Can you manage to control the look of Grafana by just switching a variable?
+* [X] Accessible Grafana UI on port 8080
+* [X] Grafana UI in `light` theme
+* [ ] Bonus: Can you manage to control the look of Grafana by just switching a variable?
 
 ### Step 4 - Re-format project to role structure
 
@@ -220,8 +253,8 @@ Make sure everything works by executing your playbook again, you should not see 
 
 Achieve the following tasks:
 
-- [X] Project uses Ansible role structure
-- [X] Playbook references role
+* [X] Project uses Ansible role structure
+* [X] Playbook references role
 
 ### Step 5 - Bonus: Upload project to Github
 
