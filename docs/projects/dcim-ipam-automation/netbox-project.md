@@ -9,7 +9,7 @@ covers:
 **D**ata**c**enter **I**nventory **M**anagement and IP Address Management are indispensable in today's large data centers. NetBox offers both functions including a versatile API.
 
 <figure markdown>
-  ![Netbox logo](netbox-logo.png)
+  ![Netbox logo](netbox-logo.png){ .off-glb }
   <figcaption></figcaption>
 </figure>
 
@@ -131,6 +131,8 @@ Achieve the following tasks:
 * [X] Use variables where possible (and useful)
 * [X] Successful communication with API established
 
+---
+
 ### Step 3 - Create a new Tenant
 
 Most core objects within NetBox's data model support tenancy. This is the association of an object with a particular tenant to convey ownership or dependency.
@@ -153,6 +155,8 @@ Achieve the following tasks:
 * [X] Tenant is part of `cc_workshop` tenant group
 * [X] Inspect tenant in the UI
 
+---
+
 ### Step 4 - Create group for VMs
 
 Let's add your three *managed nodes* to a logical group within Netbox. In the Netbox UI, click on *Virtualization*, here you can find *Clusters*.  
@@ -168,6 +172,8 @@ Find an appropriate module to create a cluster and set the following module para
 Achieve the following tasks:
 
 * [X] Cluster created
+
+---
 
 ### Step 5 - Create VMs
 

@@ -105,6 +105,8 @@ community.docker  2.7.0
 community.general 5.3.0
 ```
 
+---
+
 ### Step 2 - Prepare project
 
 Create a new project folder in your home directory:
@@ -172,6 +174,8 @@ Achieve the following tasks:
 * [X] Playbook created
 * [X] Successful communication with AWS established
 
+---
+
 ### Step 3 - Create SSH key-pair
 
 In a later step, we will create EC2 instances. To be able to login to these hosts, we need a SSH key-pair. Let's create a dedicated key, this can be achieved with the module `openssh_keypair`.
@@ -195,6 +199,8 @@ Achieve the following tasks:
 * [X] Collection with module `openssh_keypair` found and installed
 * [X] Added task to create key pair with 2048 bits
 * [X] Added task to create new AWS EC2 keypair using public key of previously created local keypair
+
+---
 
 ### Step 4 - Get default VPC
 
@@ -224,6 +230,8 @@ Achieve the following tasks:
 
 If you are curious, add another task which debugs the variable to *stdout*.
 
+---
+
 ### Step 5 - Create Security group
 
 We need to create a security group and add a rule for incoming SSH access to be able to login to our EC2 instance later.
@@ -250,6 +258,8 @@ Achieve the following tasks:
 * [X] Module for maintaining security groups identified and used
 * [X] Security group successfully created
 
+---
+
 ### Step 6 - Create EC2 instance
 
 Now it's finally time to create a virtual machine in AWS.  
@@ -269,6 +279,8 @@ Choose the right value for the `state` parameter, your playbook should wait for 
 Achieve the following task:
 
 * [X] Running EC2 instance
+
+---
 
 ### Step 7 - Get DNS name and login
 
@@ -304,6 +316,8 @@ Achieve the following tasks:
 
 !!! success
     Awesome, you created a virtual machine in the Cloud and are able to login!
+
+---
 
 ## Optional
 
@@ -423,6 +437,8 @@ ec2-3-70-238-39.eu-central-1.compute.amazonaws.com : ok=2    changed=0    unreac
       ansible_ssh_private_key_file: ~/.ssh/workshop
       ansible_user: ec2-user
     ```
+
+---
 
 ## Cleanup
 
