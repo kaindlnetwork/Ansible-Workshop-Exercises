@@ -11,7 +11,8 @@ RUN apt-get update \
 COPY requirements.txt .
 # Install Python dependencies
 RUN python3 -m pip install --no-cache-dir -r requirements.txt --break-system-packages
-# Install headless browser for PDF file generation
+# Install headless browser for PDF file generation with workaround for Ubuntu 26.04
+ENV PLAYWRIGHT_HOST_PLATFORM_OVERRIDE=ubuntu24.04-x64
 RUN playwright install chromium --with-deps
 # Copy .git folder for git-revision-date-localized-plugin
 COPY .git .git
