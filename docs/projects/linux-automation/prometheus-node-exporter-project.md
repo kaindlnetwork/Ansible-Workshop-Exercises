@@ -173,7 +173,7 @@ Group=
 # Fallback when environment file does not exist
 Environment=OPTIONS=
 EnvironmentFile=-/etc/sysconfig/node_exporter
-ExecStart=/usr/local/bin/node_exporter --web.systemd-socket $OPTIONS
+ExecStart=/usr/local/bin/node_exporter
 
 [Install]
 WantedBy=multi-user.target
