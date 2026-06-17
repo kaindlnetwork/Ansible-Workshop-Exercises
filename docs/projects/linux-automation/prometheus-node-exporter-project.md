@@ -109,7 +109,7 @@ Achieve the following tasks:
 * [X] Inventory file created
 * [X] All necessary groups created and nodes in correct groups
 * [X] Configuration file created which sets the correct inventory source
-* [X] Playbook created which target the *test environment*
+* [X] Playbook created which targets the *test environment*
 
 ---
 
@@ -179,7 +179,8 @@ ExecStart=/usr/local/bin/node_exporter
 WantedBy=multi-user.target
 ```
 
-The service file expects the binary at `/usr/local/bin/node_exporter` (see `ExecStart` parameter), **add a task which moves/copies the binary to the desired location. The binary must belong to the service user** (use the variable) **and be executable** (use `0755` permissions).
+The service file expects the binary at `/usr/local/bin/node_exporter` (see `ExecStart` parameter), **add a task which moves/copies the binary to the desired location. The binary must belong to the service user** (use the variable) **and be executable** (use `0755` permissions).  
+Remember, the service file is already present on the managed node (you unarchived it earlier).
 
 After transferrring the service file and having the binary at the correct location, the systemd service itself must be started (and should be enabled at boot)! **Add an additional task to achieve this.**
 
