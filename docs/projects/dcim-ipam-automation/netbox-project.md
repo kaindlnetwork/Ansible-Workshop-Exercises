@@ -198,7 +198,7 @@ pip3 install ansible-core==2.16.18
 
 ??? example
 
-    When running `pip3 list` again, you'll see the installed Asible package and other dependencies:
+    When running `pip3 list` again, you'll see the installed Ansible package and other dependencies:
 
     ``` { .bash .no-copy }
     (ve-ansible-netbox) [student1@ansible-1 netbox_automation]$ pip3 list
